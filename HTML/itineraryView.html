@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+
+	<head>
+	
+		<Title> Tripency </Title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+	
+	<script
+src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAVOKugu3Z_4x_ylV5hUXyMFKhcWKCH6eo&sensor=false">
+</script>
+
+<script>
+function initialize()
+{
+var mapProp = {
+  center:new google.maps.LatLng(51.508742,-0.120850),
+  zoom:5,
+  mapTypeId:google.maps.MapTypeId.ROADMAP
+  };
+var map=new google.maps.Map(document.getElementById("googleMap_1"),mapProp);
+var map=new google.maps.Map(document.getElementById("googleMap_2"),mapProp);
+}
+
+google.maps.event.addDomListener(window, 'load', initialize);
+	
+
+	</script>
+	
+</head>
+
+<body>
+
+	<div id="main">
+	
+		<div id="header">
+		
+			<img src="logo.jpg">
+			
+			<div id="user-utils">
+			
+				Login / Register
+			
+			</div>
+		
+		</div>
+		
+		
+		<div id="nav-bar">
+		
+			<ul>
+
+				<li> <a>Home </a></li>			
+				<li> <a>Itineraries </a></li>
+				<li> <a>Attractions </a></li>
+				<li> <a>Museums </a></li>
+				<li> <a>Restaurents </a></li>
+				<li> <a>About </a></li>
+
+			</ul>
+		
+		</div>
+		
+		
+		<div id="content">
+		
+			<div id="itinerary-container">
+			
+				<div class="day">
+			
+					<h4> Day One <h4>
+				
+				</div>
+
+				<div class="day">
+			
+					<h4> Day Two </h4>
+					
+					<table>
+					
+						<tbody>
+						
+							<tr>
+								<td class="time-col">10:00</td>								
+								<td class="description-col">
+								
+									<div class="itinerary-place-detail">
+									
+										<div class="itinerary-place-heading">
+									
+											<div class="place-score">
+												<span class="score-mark">98%</span>
+												MATCH
+											</div>
+									
+											<h3> The London Eye </h3>
+											<img src="five-stars.png" height="20px" /><br>
+											<span class="place-address"> Main St, London, England </span>
+										
+										</div>
+									
+									
+										<div class="left-panel">
+									
+											<div class="place-image">
+												<img src="londoneye-thumb.jpg" height="150px" width="170px">				
+											</div>
+										
+										
+											<div class="itinerary-textblock">										
+
+												<div class="badges-block">
+													<span class="badge"> History 4.6 </span>
+													<span class="badge"> Must-sees 4.9 </span>
+													<span class="badge"> Fun for kids 3.9 </span>													
+												</div>
+											
+											
+												<div class="description">
+													Test Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest Test Test Test Test TTest T
+												</div>
+											
+											</div>
+											
+											<div class="data-panel"> 
+												
+												<ol class="data-list">
+													<li> <span class="data-label"> <img src="transport.png">  </span> <span class="data-value"> Westminster Tube Station  </span> </li>
+													<li> <span class="data-label"> <img src="price.png">  </span> <span class="data-value"> $25.00  </span> </li>
+													<li> <span class="data-label"> <img src="phone.png">  </span> <span class="data-value"> 44 871 781 3000  </span> </li>
+												</ol>
+											</div>
+										
+										</div>
+										
+										<div id="googleMap_1" class="googleMap" style="width:300px;height:200px;"></div>
+									
+									</div>
+								
+								</td>
+							</tr>
+
+							
+							<tr>
+								<td class="time-col">10:00</td>								
+								<td class="description-col">
+								
+									<div class="itinerary-place-detail">
+									
+										<div class="itinerary-place-heading">
+									
+											<div class="place-score">
+												<span class="score-mark">98%</span>
+												MATCH
+											</div>
+									
+											<h3> The London Eye </h3>
+											<img src="five-stars.png" height="20px" /><br>
+											<span class="place-address"> Main St, London, England </span>
+										
+										</div>
+									
+										<div class="place-image">
+											<img src="londoneye-thumb.jpg" height="150px" width="170px">				
+										</div>
+									
+										<div class="itinerary-textblock">
+										
+											<div class="badges-block">
+												<span class="badge"> History 4.6 </span>
+												<span class="badge"> Must-sees 4.9 </span>
+												<span class="badge"> Fun for kids 3.9 </span>
+											</div>
+										
+											<div class="description">
+												Test Test Test Test Test T
+											</div>
+										
+										</div>
+										
+										<div id="googleMap_2" class="googleMap" style="width:300px;height:200px;"></div>
+									
+									</div>
+								
+								</td>
+							</tr>
+						
+						</tbody>
+					
+					</table>
+				
+				</div>				
+
+				<div class="day">
+			
+					<h4> Day Three <h4>
+				
+				</div>				
+				
+			</div>
+
+			
+			
+		
+		</div>
+		
+	</div>
+
+</body>
+
+</html>

@@ -1,0 +1,433 @@
+htmll{
+	overflow-y: scroll; 
+}
+
+.clearfix ::after{
+
+   content: "";
+   height: 0px;
+   clear: both;
+   visibility: hidden;
+   
+}
+
+h2 {
+
+	background-color: #E2E2E2;
+	font-family: arial;
+	font-size: 13px;
+	margin: 0px;
+	font-weight: bold;
+	padding: 2px 2px 2px 4px;
+	text-transform:uppercase;	
+
+}
+
+h3 {
+
+	font-family: arial;
+	font-size: 19px;	
+	padding: 0px;
+	color: #013ADF;
+	display: inline;
+	
+
+}
+
+h4 {
+
+	font-family: "Georgia", "Times New Roman","Century Schoolbook L";
+	font-style: italic;
+	font-weight: normal;
+	font-size: 20px;
+	color: #FFB723;#
+	padding: 0px 0px 0px 0px;
+
+}
+
+body {
+	background-color: #D7EDFA;
+	margin-top: 0px;
+}
+
+
+#main {
+
+	width: 1150px;
+	margin: auto;
+	background-color: white;
+	padding: 5px 25px 0px 25px;
+
+}
+
+/* ------------------------------------- */
+/* Header */
+
+#header{
+	position: relative;
+}
+
+#user-utils{
+
+	position: absolute;
+	top: 10px;
+	left: 800px;
+	font-family: arial;
+
+}
+
+/* ------------------------------------- */
+/* Nav Bar */
+
+#nav-bar ul {
+
+	background-color:  #7AA9D5;
+	list-style: none outside none;
+	height: 45px;
+	margin-bottom: 9px;
+
+}
+
+#nav-bar li {
+
+	float: left;
+	background-color: #7AA9D5;
+
+}
+
+
+#nav-bar li a {
+
+	background-color: #7AA9D5;
+	display: block;	
+	padding: 0px 25px;
+	text-align: center;
+	font-weight: normal;
+	color: white;
+	font: 20px 'Lucida Sans Unicode','Bitstream Vera Sans','Trebuchet Unicode MS','Lucida Grande',Verdana,Helvetica,sans-serif;
+	line-height: 45px;
+}
+
+
+/* ------------------------------------- */
+/* Content layout */
+
+#content{
+
+	background-color: white;
+	height: 1000px;
+
+}
+
+#left-col{
+
+	float: left;	
+	width: 75%;
+
+}
+
+#right-col{
+	float: right;	
+	width: 24%;
+}
+
+
+#filter-col{
+
+	float: left;	
+	width: 20%;
+	background-color: red;
+
+}
+
+#places-col{
+	float: right;	
+	width: 79%;
+	
+}
+
+/* ------------------------------------- */
+/* Right Col - Attractions */
+
+
+.place{
+
+	margin-top: 5px;
+	padding-left: 4px;
+	display: block;
+	overflow: hidden;
+	
+		
+}
+
+.place img{
+
+	float: left;
+	margin-right: 5px;
+	overflow: hidden;
+
+
+}
+
+.places{
+
+	margin-bottom: 5px;
+
+}
+
+.place-name{
+
+	display: block;
+	font-family: arial;
+	font-weight: bold;
+	font-size: 15px;
+	color: #000066;
+
+}
+
+.place-city{
+
+	display: block;
+	font-family: arial;
+	font-weight: bold;
+	font-style:italic;
+	font-size: 12px;
+
+}
+
+.place-rating{
+
+	display: block;
+
+}
+
+/* ------------------------------------- */
+/* Attractions page: detail*/
+
+.place-detail{
+
+	width: 892px;
+	background-color: white;
+	box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+	padding: 7px;	
+	display: inline-block;
+	overflow: auto;
+	border: 1px solid #BDBDBD;
+	margin-bottom: 10px;
+	
+
+}
+
+.place-heading img {
+	position: relative;
+	top: 2px;
+}
+
+.itinerary-textblock{
+
+	
+	overflow: hidden;
+	float: left;
+	width: 510px;
+
+
+
+}
+
+.textblock{
+
+	
+	overflow: hidden;
+
+
+}
+
+.description{
+	color: #003580;
+	font-family: arial;
+	margin-top: 10px;
+	font-size: 13px;
+	
+}
+
+.place-image{
+
+	float: left;
+	margin-right: 10px;
+	
+
+}
+
+
+.place-heading{
+	margin: 0px 0px 5px 0px;	
+}
+
+.badges-block{
+
+	background-color: #DFFFC4; 
+	border-radius: 12px;
+	padding: 7px;
+	font-family: arial;
+
+}
+
+
+/* ------------------------------------- */
+/* Itinerary layout */
+
+#itinerary-container{
+
+	margin: 0px 0px 0px 10px;
+
+}
+
+#itinerary-container table{
+
+	width: 100%;
+	margin-left: 10px;
+	border-collapse:collapse;
+	border:  1px solid gray !important;
+	
+
+}
+
+.time-col{
+
+	background: #EFF8FD;
+	width: 100px;
+	font-family: arial;
+	font-size: 20px;
+	font-weight: bold;
+	padding: 5px;
+	text-align: center;
+	vertical-align: top;
+	border-bottom: 1px solid gray !important;
+
+
+}
+
+.description-col{
+	background-color: #fffff;
+	vertical-align: top;
+	border-bottom: 1px solid gray !important;
+
+}
+
+
+.itinerary-place-detail{
+
+	width: 1000px;
+	background-color: white;
+	padding: 7px;	
+	display: inline-block;
+	overflow: auto;	
+	margin-bottom: 10px;
+	
+
+}
+
+.itinerary-place-heading{
+	margin: 0px 0px 5px 0px;	
+}
+
+.place-score{
+
+	float: right;
+	font-family: arial;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: center;
+	color: #088A08;
+
+}
+.score-mark{
+	
+	font-family: arial;
+	font-size: 25px;
+	font-weight: bold;
+	display: block;
+
+
+}
+
+.itinerary-place-heading img {
+	position: relative;
+	top: 2px;
+}
+
+
+.place-address {
+	font-family: arial;
+	font-style: italic;
+	font-size: 12px;
+}
+
+.googleMap{
+	float: right;
+}
+
+.badge {
+  padding: 1px 9px 2px;
+  font-size: 12.025px;
+  font-weight: bold;
+  white-space: nowrap;
+  color: #ffffff;
+  background-color: #468847;
+  border-radius: 9px;
+  margin-right: 5px;
+  display: inline-block;
+}
+
+
+
+.left-panel{
+	overflow: hidden;
+	width: 700px;
+	float: left;
+}
+
+.data-panel {
+	
+	clear:both;
+	color: #666666;
+	font-family: arial;
+	font-size: 14px;
+	padding-top: 9px;
+
+}
+
+.data-label{
+	
+	font-weight: bold;
+
+}
+
+.data-label img{
+	position: relative;
+	top: 4px;
+}
+
+
+
+.data-list  {
+		
+		list-style-type: none;		
+		margin:0px;
+		padding:0px;
+	
+	}
+	
+.data-list li {
+		display: inline;
+		padding-right: 5px;
+		padding-left: 11px;
+		background-image: url('separator.png');
+		background-repeat: no-repeat;
+			
+	}
+
+.data-list li:first-child {
+		background-image: none;
+		padding-left:0px;
+	}	
