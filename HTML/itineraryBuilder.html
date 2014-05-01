@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+
+	<head>
+	
+		<Title> Tripency </Title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		
+		<link href="css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+		<script src="js/jquery-1.10.2.js"></script>
+		<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	
+		<script type="text/javascript">
+		
+		
+			$(function() {
+				$( ".category" ).draggable({
+				
+				    appendTo: "body",
+					cursor: "move",
+					helper: 'clone',
+					revert: "invalid"
+				
+				});
+			});
+			
+			$(function() {
+			
+				$(".stackDrop1").droppable({
+					tolerance: "intersect",
+					accept: ".category",
+					activeClass: "ui-state-default",
+					hoverClass: "ui-state-hover",
+					drop: function(event, ui) {        
+						$(this).append($(ui.draggable));
+						var categoryName = (ui.draggable.text());
+						appendRow(categoryName);
+						ui.draggable.remove();
+					}
+				});
+			
+			});
+
+			
+			function appendRow(categoryName) {
+			
+				var tableRef = document.getElementById('category-pref-table').getElementsByTagName('tbody')[0];
+
+				// Insert a row in the table at the last row
+				var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+				// Insert a cell in the row at index 0
+				var newCell1  = newRow.insertCell(0);
+				var newCell2  = newRow.insertCell(1);
+				var newCell3  = newRow.insertCell(2);
+
+				newCell1.setAttribute("id", "category-name");
+				
+				// Append a text node to the cell
+				var newText1  = document.createTextNode(categoryName);	
+				newCell1.appendChild(newText1);
+												
+				var prefNum  = document.createElement('span');
+				prefNum.className = "pref-label";	
+
+				var newText3  = document.createTextNode('Interested');	
+				prefNum.appendChild(newText3);
+				
+				var $slider = $("<div class='slider'></div>");
+				
+				$slider.slider({					
+					min: 1,
+					max: 5,
+					step: 1,		
+					value: 3,
+					slide: function( event, ui ) {
+						 $(this).parent().next().find('.pref-label').text(getPrefLabel(ui.value));
+					}					
+					});
+				
+				
+				$slider.appendTo(newCell2);
+				newCell3.appendChild(prefNum);
+			
+			};
+			
+			function getPrefLabel(prefInx){
+			
+	
+			
+				if (prefInx=="1")
+				  {
+					return "Not really Interested"
+				  }
+				else if (prefInx=="2")
+				  {
+					return "Somewhat Interested"
+				  }
+				else if (prefInx=="3")
+				  {
+					return "Interested"
+				  }
+				else if (prefInx=="4")
+				  {
+					return "Very Interested"
+				  }
+				else if (prefInx=="5")
+				  {
+					return "Extremely Interested"
+				  }				  
+
+
+			
+			}
+			
+		</script>
+	
+	</head>
+
+</head>
+
+<body>
+
+	<div id="main">
+	
+		<div id="header">
+		
+			<img src="logo.jpg">
+			
+			<div id="user-utils">
+			
+				Login / Register
+			
+			</div>
+		
+		</div>
+		
+		
+		<div id="nav-bar">
+		
+			<ul>
+
+				<li> <a>Home </a></li>			
+				<li> <a>Itineraries </a></li>
+				<li> <a>Attractions </a></li>
+				<li> <a>Museums </a></li>
+				<li> <a>Restaurents </a></li>
+				<li> <a>About </a></li>
+
+			</ul>
+		
+		</div>
+		
+		
+		<div id="content">
+		
+			<div id="category-col">
+				Please drag to categories
+				
+				<div id="launchPad">
+				
+					    <div class="category">
+							apple
+						</div> 
+						<div class="category">
+							orange
+						</div> 
+						<div class="category">
+							banana
+						</div> 
+						<div class="category">
+							car
+						</div> 
+
+				</div>
+				
+			</div>
+			
+			<div id="pref-col">
+				
+				
+				<div id="dropZone">
+				
+				<div class="stack">
+					<div class="stackDrop1">
+						<div class="category-pref">
+							
+							<table id="category-pref-table">
+							  <col width="250">
+							  <col width="400">
+								<tbody>
+								</tbody>
+							</table>
+							
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		
+		</div>
+		
+	</div>
+
+</body>
+
+</html>
