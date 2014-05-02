@@ -14,18 +14,10 @@
 	
 		<script type="text/javascript">
 		
-			var prefCollection = new Array();
+			var prefCollection = {};
+			var testSTr;
 			
-			function postArray() {
-						
 
-			    $('#pref-form [name="data"]').val(JSON.stringify(prefCollection));
-			    $('#pref-form').submit();
-				
-			
-			    return false;
-			    
-			};
 			
 			$(function() {
 				$( ".category" ).draggable({
@@ -49,8 +41,7 @@
 						$(this).append($(ui.draggable));
 						var categoryName = (ui.draggable.text());
 						var categoryID = ui.draggable.attr("id");
-						prefCollection[categoryID] = 3;
-						
+						prefCollection[categoryID] = 3;						
 						appendRow(categoryName, categoryID);
 						ui.draggable.remove();
 					}
@@ -60,7 +51,9 @@
 
 			
 			function appendRow(categoryName, categoryID) {
-			
+
+				testSTr = "test";
+				
 				var tableRef = document.getElementById('category-pref-table').getElementsByTagName('tbody')[0];
 
 				// Insert a row in the table at the last row
@@ -131,6 +124,17 @@
 			
 			}
 			
+			function postArray() {
+				
+
+				$('#pref-form [name="data"]').val(JSON.stringify(prefCollection));
+				$('#pref-form').submit();
+			    
+			
+			    return false;
+			    
+			};
+			
 		</script>
 	
 	</head>
@@ -179,40 +183,40 @@
 				
 
 				
-					    <div class="category" id="hist">
-							History
+					    <div class="category" id="1">
+							Histories
 						</div> 
-						<div class="category" id="arch">
+						<div class="category" id="2">
 							Architecture
 						</div> 
-						<div class="category" id="walk">
+						<div class="category" id="3">
 							City Walks
 						</div> 
-						<div class="category" id="art">
+						<div class="category" id="4">
 							Art
 						</div> 
-					    <div class="category" id="musc">
+					    <div class="category" id="5">
 							Music
 						</div> 
-						<div class="category" id="must">
+						<div class="category" id="6">
 							Must See
 						</div> 
-						<div class="category" id="view">
+						<div class="category" id="7">
 							Panoramic Views
 						</div> 
-						<div class="category" id="expr">
+						<div class="category" id="8">
 							Local Experiences
 						</div> 
-					    <div class="category" id="relx">
+					    <div class="category" id="9">
 							Relaxation
 						</div> 
-						<div class="category" id="shop">
+						<div class="category" id="10">
 							Shopping
 						</div> 
-						<div class="category" id="gems">
+						<div class="category" id="11">
 							Hidden Gems
 						</div> 
-						<div class="category" id="chdr">
+						<div class="category" id="12">
 							Enjoyable for Children
 						</div> 
 	

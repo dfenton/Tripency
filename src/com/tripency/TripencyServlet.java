@@ -1,7 +1,10 @@
 package com.tripency;
 
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.ArrayList;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -27,12 +30,13 @@ public class TripencyServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
 		
 	    // Set response content type
 	    response.setContentType("text/html");
 			    
 	    System.out.println("---in server---");
+	    
+    
 	    
 		RequestDispatcher rd = request.getRequestDispatcher("home.html"); 
 		rd.forward(request, response);
@@ -45,10 +49,27 @@ public class TripencyServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		
+		System.out.println("---in server---");
+		String userCategories;
+		
+		ArrayList<ThemeWeight> userWeightingCollection;
+		ArrayList<Attraction> attractionWeightingCollection;
+		
 	    // Set response content type
 	    response.setContentType("text/html");
-			    
-	    System.out.println("---in server---");
+		
+	    String jsonStr = request.getParameter("data");	    
+	    
+	    System.out.println(jsonStr);
+	    
+	    WeightingManager weightingMgr = new WeightingManager();
+	    
+	    userWeightingCollection = weightingMgr.getUserWeightingFromJson(jsonStr);	 
+	    userCategories = weightingMgr.getUserCategoriesFromJson(jsonStr);
+	    attractionWeightingCollection = weightingMgr.getAttractionWeightings(userCategories);
+	    
+	    MatchManager matchMgr = new MatchManager();
+	    matchMgr.getMatchingAttractionsInOrder(userWeightingCollection, attractionWeightingCollection);
 	    
 		RequestDispatcher rd = request.getRequestDispatcher("home.html"); 
 		rd.forward(request, response);
