@@ -1,0 +1,304 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<head>
+
+	<head>
+	
+		<Title> Tripency </Title>
+		<link rel="stylesheet" type="text/css" href="styles.css">
+		
+		<link href="css/ui-lightness/jquery-ui-1.10.4.custom.css" rel="stylesheet">
+		<script src="js/jquery-1.10.2.js"></script>
+		<script src="js/jquery-ui-1.10.4.custom.js"></script>
+	
+		<script type="text/javascript">
+		
+			var prefCollection = {};
+			var hasInstruction = true;
+			
+
+			
+			$(function() {
+				$( ".category" ).draggable({
+				
+				    appendTo: "body",
+					cursor: "move",
+					helper: 'clone',
+					revert: "invalid"
+				
+				});
+			});
+			
+			$(function() {
+			
+				$(".stackDrop1").droppable({
+					tolerance: "intersect",
+					accept: ".category",
+					activeClass: "ui-state-default",
+					hoverClass: "ui-state-hover",
+					drop: function(event, ui) {        
+						$(this).append($(ui.draggable));
+						var categoryName = (ui.draggable.text());
+						var categoryID = ui.draggable.attr("id");	
+						
+						if (hasInstruction){						
+							
+							var div = document.getElementById("instruction");
+							div.parentNode.removeChild(div);
+						
+							hasInstruction = false;
+							
+						}
+						
+						prefCollection[categoryID] = 3;
+						
+						appendRow(categoryName, categoryID);
+						ui.draggable.remove();
+					}
+				});
+			
+			});
+
+			
+			function appendRow(categoryName, categoryID) {
+
+				
+				var tableRef = document.getElementById('category-pref-table').getElementsByTagName('tbody')[0];
+
+				// Insert a row in the table at the last row
+				var newRow   = tableRef.insertRow(tableRef.rows.length);
+
+				// Insert a cell in the row at index 0
+				var newCell1  = newRow.insertCell(0);
+				var newCell2  = newRow.insertCell(1);
+				var newCell3  = newRow.insertCell(2);
+
+				newCell1.setAttribute("id", "category-name");
+				
+				// Append a text node to the cell
+				var newText1  = document.createTextNode(categoryName);	
+				newCell1.appendChild(newText1);
+												
+				var prefNum  = document.createElement('span');
+				prefNum.className = "pref-label";	
+
+				var newText3  = document.createTextNode('Interested');	
+				prefNum.appendChild(newText3);
+				
+				var $slider = $("<div class='slider'></div>");
+				
+				$slider.slider({					
+					min: 1,
+					max: 5,
+					step: 1,		
+					value: 3,
+					slide: function( event, ui ) {
+						 $(this).parent().next().find('.pref-label').text(getPrefLabel(ui.value));
+						 prefCollection[categoryID] = ui.value;
+					}					
+					});
+				
+				
+				$slider.appendTo(newCell2);
+				newCell3.appendChild(prefNum);
+			
+			};
+			
+			function getPrefLabel(prefInx){
+			
+	
+			
+				if (prefInx=="1")
+				  {
+					return "Not really Interested"
+				  }
+				else if (prefInx=="2")
+				  {
+					return "Somewhat Interested"
+				  }
+				else if (prefInx=="3")
+				  {
+					return "Interested"
+				  }
+				else if (prefInx=="4")
+				  {
+					return "Very Interested"
+				  }
+				else if (prefInx=="5")
+				  {
+					return "Extremely Interested"
+				  }				  
+
+
+			
+			}
+			
+			function postArray() {
+				
+
+				$('#pref-form [name="data"]').val(JSON.stringify(prefCollection));
+				$('#pref-form').submit();
+			    
+			
+			    return false;
+			    
+			};
+			
+		</script>
+	
+	</head>
+
+</head>
+
+<body>
+
+	<div id="main">
+	
+		<div id="header">
+		
+			<img src="logo.jpg">
+			
+			<div id="user-utils">
+			
+				Login / Register
+			
+			</div>
+		
+		</div>
+		
+		
+		<div id="nav-bar">
+		
+			<ul>
+
+				<li> <a href="home.html">Home </a></li>			
+				<li> <a><b>Itineraries </b></a></li>
+								<li> <a href="about.html">About </a></li>
+
+			</ul>
+		
+		</div>
+		
+		
+		<div id="content">
+		
+			<div id="category-col">
+		
+				
+				<div id="launchPad">
+				
+
+				
+					    <div class="category" id="1">
+							History
+						</div> 
+						<div class="category" id="2">
+							Architecture
+						</div> 
+						<div class="category" id="3">
+							City Walks
+						</div> 
+						<div class="category" id="4">
+							Art
+						</div> 
+					    <div class="category" id="5">
+							Music
+						</div> 
+						<div class="category" id="6">
+							Must See
+						</div> 
+						<div class="category" id="7">
+							Panoramic Views
+						</div> 
+						<div class="category" id="8">
+							Local Experiences
+						</div>
+						<div class="category" id="10">
+							Shopping
+						</div> 
+						<div class="category" id="11">
+							Hidden Gems
+						</div> 
+						<div class="category" id="12">
+							Enjoyable for Children
+						</div> 
+	
+						
+				</div>
+				
+				
+				
+				
+				
+			</div>
+			
+			<div id="pref-col">
+				
+				
+				<div id="dropZone">
+				
+				<div class="stack">
+					<div class="stackDrop1">
+						<div class="category-pref">
+							
+							<p id="instruction"> Drag and drop your interests here
+							
+							<table id="category-pref-table">
+							  <col width="250">
+							  <col width="400">
+								<tbody>
+								</tbody>
+							</table>
+							
+							
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		
+		<div id="hol-details">
+		
+				<form id="pref-form"  method="post" action="TripencyServlet" onsubmit="postArray()" id="pref-form">
+					
+					<label for="city">  Your Destination </label>
+					<select name="city">
+
+					  <option value="1">London</option>
+					  
+					</select> 
+
+					<label for="city"> Duration of Your Trip </label>
+					<select name="duration">
+					  <option value="1">1 Day</option>
+					  <option value="2">2 Days</option>
+					  <option value="3">3 Days</option>
+					  <option value="4">4 Days</option>					  
+					  <option value="5">5 Days</option>
+					  <option value="6">6 Days</option>
+					  <option value="7">7 Days</option>					  
+					</select> 
+					
+
+		
+			<input type="submit" value="Build My Itinerary" id="build-button" />
+			<input type="hidden" name="data" value="">
+		
+
+			
+				</form>
+			
+			</div>
+		
+		</div>
+		
+
+		
+	</div>
+	
+	</div>
+
+</body>
+
+</html>
